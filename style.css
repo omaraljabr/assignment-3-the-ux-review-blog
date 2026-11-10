@@ -1,0 +1,1178 @@
+/* ==============================
+   RESET + VARIABLES
+============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #000;
+  --yellow-bg: #fcf588;
+  --yellow: #f9d736;
+  --orange: #ff5a00;
+  --red: #e8173f;
+  --blue: #2563eb;
+  --purple: #a21fe6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  font-family: 'Exo 2', sans-serif;
+  background: var(--yellow-bg);
+  color: var(--black);
+  border-left: 3px solid var(--black);
+  border-right: 3px solid var(--black);
+  overflow-x: clip;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ==============================
+   BACKGROUND SHAPES
+============================== */
+
+.bg-shape {
+  position: absolute;
+  z-index: 0;
+}
+
+.shape-one {
+  top: 90px;
+  left: 30px;
+  width: 150px;
+  height: 110px;
+  background: #e2db7a;
+  transform: skewX(-12deg);
+}
+
+.shape-two {
+  top: 230px;
+  right: 70px;
+  width: 110px;
+  height: 110px;
+  background: #fadd81;
+  transform: rotate(45deg);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ==============================
+   NAVBAR
+============================== */
+
+.navbar {
+  position: sticky;
+  top: 15px;
+  z-index: 100;
+  height: 68px;
+  margin: 15px 50px -83px;   /* الهامش السالب يخلي الـ Hero يبدأ من فوق */
+  padding: 0 25px;
+  background: #fff;
+  border: 3px solid var(--black);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--orange);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-item {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.nav-item:hover {
+  color: var(--orange);
+}
+
+.nav-links i {
+  color: #bbb;
+  font-size: 14px;
+}
+
+.subscribe-btn {
+  background: #f9d35d;
+  border: 3px solid var(--black);
+  border-radius: 30px;
+  padding: 10px 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.subscribe-btn:hover {
+  background: var(--black);
+  color: #f9d35d;
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  padding: 150px 65px 90px;
+}
+
+.trending-badge {
+  display: inline-block;
+  background: var(--black);
+  color: #fff;
+  padding: 14px 18px;
+  font-weight: 800;
+  font-size: 16px;
+  transform: rotate(-2deg);
+  margin-bottom: 30px;
+}
+
+.hero-title {
+  font-size: 84px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.hero-title span {
+  display: block;
+  text-shadow: 4px 4px 0 #000;
+}
+
+.title-black { color: var(--black); text-shadow: 4px 4px 0 #555 !important; }
+.title-red   { color: #d3000d; }
+.title-blue  { color: #1c58f4; }
+
+.hero-description {
+  max-width: 580px;
+  margin: 40px 0;
+  padding: 18px;
+  background: #fff;
+  border: 3px solid var(--black);
+  box-shadow: 6px 6px 0 var(--black);
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 22px 36px;
+  border: 4px solid var(--black);
+  box-shadow: 6px 6px 0 var(--black);
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: var(--black);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--black);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 var(--black);
+}
+
+.hero-image-container {
+  position: relative;
+  transform: rotate(2deg);
+}
+
+.hero-image {
+  background: #fff;
+  border: 6px solid var(--black);
+  box-shadow: 12px 12px 0 var(--black);
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.featured-badge {
+  position: absolute;
+  top: -20px;
+  right: -15px;
+  z-index: 2;
+  background: #d8101b;
+  color: #fff;
+  border: 3px solid var(--black);
+  padding: 8px 14px;
+  font-weight: 800;
+  font-size: 18px;
+  transform: rotate(8deg);
+}
+
+
+/* ==============================
+   LATEST ARTICLES
+============================== */
+
+.articles-section {
+  display: grid;
+  grid-template-columns: 1fr 390px;
+  gap: 30px;
+  align-items: start;
+  padding: 80px 60px;
+  background: #f4f4f4;
+  border-top: 4px solid var(--black);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 45px;
+}
+
+.section-title {
+  font-size: 56px;
+  font-weight: 900;
+  text-shadow: 3px 3px 0 #fff;
+}
+
+.fresh-badge {
+  background: var(--black);
+  color: #fff;
+  padding: 16px 26px;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+  box-shadow: 4px 4px 0 #333;
+}
+
+/* كارت المقال */
+.article-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 35px;
+  padding: 32px 35px;
+  margin-bottom: 40px;
+  background: #fff;
+  border: 4px solid var(--black);
+  box-shadow: 8px 8px 0 var(--black);
+}
+
+.article-image {
+  position: relative;      /* عشان البادج يتحط على الركن */
+  flex-shrink: 0;
+  width: 160px;
+}
+
+.article-image img {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border: 3px solid var(--black);
+}
+
+.article-badge {
+  position: absolute;
+  top: -14px;
+  right: -16px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  transform: rotate(8deg);
+}
+
+.badge-new   { background: #d8101b; }
+.badge-hot   { background: var(--blue); }
+.badge-viral {
+  background: var(--purple);
+  top: -20px;
+  right: -22px;
+  transform: rotate(45deg);
+}
+
+.article-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  margin-bottom: 8px;
+  border: 3px solid var(--black);
+  box-shadow: 3px 3px 0 var(--black);
+  font-size: 14px;
+  font-weight: 800;
+  transform: rotate(-1deg);
+}
+
+.tag-tech    { background: #fde82a; }
+.tag-design  { background: #8affb2; }
+.tag-culture { background: #efa8e0; }
+
+.article-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.article-description {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.article-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 35px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.article-details i {
+  margin-right: 6px;
+}
+
+.likes,
+.likes i {
+  color: #c8102e;
+}
+
+/* زر Load More */
+.load-more {
+  display: block;
+  width: fit-content;
+  margin: 10px auto 0;
+  padding: 20px 45px;
+  background: var(--black);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  box-shadow: 8px 8px 0 #333;
+  transition: 0.2s;
+}
+
+.load-more:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 4px 4px 0 #333;
+}
+
+
+/* ==============================
+   SIDEBAR
+============================== */
+
+.articles-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.trending-box,
+.categories-box {
+  padding: 30px 35px;
+  background: #fff;
+  border: 4px solid var(--black);
+  box-shadow: 8px 8px 0 var(--black);
+}
+
+.sidebar-title {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 22px;
+}
+
+.trending-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.trending-number {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.trending-box .trending-item:nth-child(2) .trending-number { color: #ea1536; }
+.trending-box .trending-item:nth-child(3) .trending-number { color: var(--blue); }
+.trending-box .trending-item:nth-child(4) .trending-number { color: var(--purple); }
+
+.trending-name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.trending-details {
+  font-size: 16px;
+  color: #666;
+}
+
+.category-item {
+  display: block;
+  padding: 15px 18px;
+  margin-bottom: 15px;
+  border: 3px solid var(--black);
+  font-size: 20px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.category-item:hover {
+  transform: translateX(8px);
+}
+
+.tech-category      { background: #fbfac2; }
+.design-category    { background: #dcffe6; }
+.culture-category   { background: #fae2f2; }
+.opinion-category   { background: #dbe8fb; }
+.tutorials-category { background: #f2e4fe; }
+
+
+/* ==============================
+   AUTHORS
+============================== */
+
+.authors-section {
+  position: relative;
+  overflow: hidden;
+  padding: 90px 60px 100px;
+  background: var(--yellow);
+  border-top: 4px solid var(--black);
+}
+
+.authors-section::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 140px;
+  height: 140px;
+  background: #dfc231;
+  transform: rotate(45deg);
+}
+
+.authors-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.authors-title {
+  font-size: 56px;
+  font-weight: 900;
+}
+
+.authors-description {
+  margin-top: 12px;
+  font-size: 21px;
+  font-weight: 600;
+  color: #444;
+}
+
+.authors-line {
+  width: 130px;
+  height: 8px;
+  margin: 22px auto 0;
+  background: var(--black);
+  transform: rotate(-1deg);
+}
+
+.authors-cards {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.author-card {
+  position: relative;
+  padding: 35px 30px;
+  text-align: center;
+  border: 4px solid var(--black);
+  box-shadow: 8px 8px 0 var(--black);
+  transition: 0.2s;
+}
+
+.author-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--black);
+}
+
+.author-card:hover .author-name {
+  color: var(--blue);
+}
+
+.card-yellow { background: #fbfac2; }
+.card-green  { background: #dcffe6; }
+.card-pink   { background: #fae2f2; }
+
+.author-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  padding: 6px 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.badge-founder      { background: #d8101b; transform: rotate(8deg); }
+.badge-lead         { background: var(--blue); transform: rotate(-6deg); }
+.badge-viral-author {
+  background: var(--purple);
+  top: 28px;
+  right: 24px;
+  padding: 8px 9px;
+  transform: rotate(45deg);
+}
+
+.author-image {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 25px;
+  border: 4px solid var(--black);
+}
+
+.author-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-name {
+  font-size: 34px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.author-role {
+  font-size: 17px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 18px;
+}
+
+.author-bio {
+  font-size: 17px;
+  line-height: 1.55;
+  margin-bottom: 25px;
+}
+
+.author-social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.author-social a {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--black);
+  color: #fff;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+.author-social a:hover {
+  background: #d8101b;
+  transform: translateY(-4px);
+}
+
+
+/* ==============================
+   COMMUNITY
+============================== */
+
+.community-section {
+  padding: 90px 60px 100px;
+  background: #f4f4f4;
+  border-top: 4px solid var(--black);
+}
+
+.community-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.community-title {
+  font-size: 56px;
+  font-weight: 900;
+  text-shadow: 3px 3px 0 #fff;
+}
+
+.community-subtitle {
+  margin-top: 12px;
+  font-size: 21px;
+  font-weight: 600;
+  color: #444;
+}
+
+.community-line {
+  width: 130px;
+  height: 8px;
+  margin: 22px auto 0;
+  background: var(--black);
+  transform: rotate(-1deg);
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ----- العمود الشمال ----- */
+.community-heading {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 38px 0 38px;
+}
+
+.community-text {
+  max-width: 590px;
+  padding: 16px 18px;
+  margin-bottom: 35px;
+  background: #fff;
+  border: 3px solid var(--black);
+  box-shadow: 5px 5px 0 var(--black);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.benefits-list {
+  list-style: none;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--black);
+  color: #fff;
+  font-size: 20px;
+}
+
+.icon-red    { background: #ea1536; }
+.icon-blue   { background: #307dfa; }
+.icon-purple { background: #a52bf4; }
+.icon-green  { background: #10e24e; }
+
+/* ----- العمود اليمين ----- */
+.community-right {
+  padding: 40px 42px;
+  background: #fff;
+  border: 4px solid var(--black);
+  box-shadow: 10px 10px 0 var(--black);
+}
+
+.testimonials-title {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 28px;
+}
+
+.testimonial {
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  border: 2px solid var(--black);
+}
+
+.testimonial:last-child {
+  margin-bottom: 0;
+}
+
+.t-pink  { background: #faf0f4; }
+.t-blue  { background: #f0f5ff; }
+.t-lilac { background: #f7f3fe; }
+
+.testimonial p {
+  margin-bottom: 18px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.testimonial-author img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border: 2px solid var(--black);
+}
+
+.t-name {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.t-role {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer {
+    position: relative;
+    padding: 80px 60px 85px;
+    background: #000;
+    color: #fff;
+    border-top: 4px solid #000;
+}
+
+/* FOOTER CONTENT */
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.55fr 1.2fr;
+    gap: 65px;
+    padding-bottom: 55px;
+}
+
+/* ABOUT */
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+.footer-icon {
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    color: #000;
+    font-size: 25px;
+}
+
+.footer-brand h2 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.footer-about p {
+    max-width: 480px;
+    font-size: 19px;
+    line-height: 1.6;
+    color: #eee;
+}
+
+/* CATEGORIES */
+
+.footer-categories h3,
+.footer-newsletter h3 {
+    font-size: 27px;
+    font-weight: 900;
+    margin-bottom: 32px;
+}
+
+.footer-categories a {
+    display: block;
+    width: fit-content;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.footer-categories a:hover {
+    color: var(--yellow);
+    transform: translateX(6px);
+}
+
+/* NEWSLETTER */
+
+.footer-newsletter p {
+    font-size: 19px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #eee;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.newsletter-form input {
+    width: 100%;
+    height: 63px;
+    padding: 0 18px;
+    background: #000;
+    border: 1px solid #fff;
+    color: #fff;
+    font-family: inherit;
+    font-size: 17px;
+    outline: none;
+}
+
+.newsletter-form input:focus {
+    border-color: var(--yellow);
+}
+
+.newsletter-form button {
+    width: 100%;
+    height: 58px;
+    background: #ffe21f;
+    border: none;
+    color: #000;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.newsletter-form button:hover {
+    background: #fff;
+}
+
+/* FOOTER BOTTOM */
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding-top: 35px;
+    border-top: 4px solid #fff;
+}
+
+.footer-bottom p {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-links a {
+    font-size: 15px;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--yellow);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+    }
+
+    .footer-newsletter {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .footer {
+        padding: 55px 25px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-newsletter {
+        grid-column: auto;
+    }
+
+    .footer-brand h2 {
+        font-size: 23px;
+    }
+
+    .footer-bottom {
+        gap: 25px;
+    }
+
+    .footer-bottom p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+
+    .footer-links a {
+        font-size: 12px;
+    }
+}
+
+/* =========================================
+   IMAGE HOVER EFFECTS — CSS ONLY
+   إبراز الصور عند مرور مؤشر الماوس
+========================================= */
+
+/* =========================================
+   PREMIUM IMAGE HOVER EFFECTS
+   حركة ناعمة واحترافية للصور
+========================================= */
+
+/* الصورة الرئيسية */
+.hero-image {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.5s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.5s ease;
+  will-change: transform;
+}
+
+.hero-image img {
+  transition:
+    transform 0.65s cubic-bezier(.2,.8,.2,1),
+    filter 0.5s ease;
+  transform-origin: center;
+}
+
+.hero-image:hover {
+  transform: translateY(-7px);
+  box-shadow: 16px 16px 0 var(--black);
+}
+
+.hero-image:hover img {
+  transform: scale(1.07);
+  filter: saturate(1.12) contrast(1.05);
+}
+
+/* صور المقالات */
+.article-image {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 3px solid var(--black);
+}
+
+.article-image img {
+  border: none;
+  transition:
+    transform 0.6s cubic-bezier(.2,.8,.2,1),
+    filter 0.5s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.article-image:hover {
+  z-index: 5;
+}
+
+.article-image:hover img {
+  transform: scale(1.13);
+  filter: saturate(1.15) contrast(1.06);
+}
+
+/* كارت المقال */
+.article-card {
+  position: relative;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 12px 12px 0 var(--black);
+  z-index: 2;
+}
+
+/* صور الكُتّاب */
+.author-image {
+  overflow: hidden;
+}
+
+.author-image img {
+  transition:
+    transform 0.55s cubic-bezier(.2,.8,.2,1),
+    filter 0.4s ease;
+  will-change: transform;
+}
+
+.author-card:hover .author-image img {
+  transform: scale(1.12);
+  filter: saturate(1.12) contrast(1.05);
+}
+
+/* صور أصحاب التعليقات */
+.testimonial-author img {
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+  overflow: hidden;
+}
+
+.testimonial-author img:hover {
+  transform: scale(1.12);
+  filter: saturate(1.15);
+}
+
+/* تحسين انتقالات الصور */
+.hero-image img,
+.article-image img,
+.author-image img,
+.testimonial-author img {
+  backface-visibility: hidden;
+}
+
+/* تعطيل الحركة عند تفضيل تقليل المؤثرات */
+@media (prefers-reduced-motion: reduce) {
+  .hero-image,
+  .hero-image img,
+  .article-card,
+  .article-image img,
+  .author-image img,
+  .testimonial-author img {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* تعطيل تأثير الماوس على الشاشات اللمسية */
+@media (hover: none) {
+  .hero-image:hover,
+  .article-image:hover img,
+  .article-card:hover,
+  .author-card:hover .author-image img,
+  .testimonial-author img:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* =========================================
+   إيقاف جميع الانتقالات والحركات
+   مع الحفاظ على الشريط العلوي sticky
+   CSS فقط — بدون JavaScript
+========================================= */
+
+html {
+  scroll-behavior: auto !important;
+}
+
+*:not(.navbar):not(.navbar *),
+*:not(.navbar)::before,
+*:not(.navbar)::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* إلغاء حركات عناصر hover فقط */
+.btn-primary:hover,
+.btn-secondary:hover,
+.load-more:hover,
+.category-item:hover,
+.author-card:hover,
+.author-social a:hover,
+.footer-categories a:hover,
+.hero-image:hover,
+.hero-image:hover img,
+.article-image:hover img,
+.article-card:hover,
+.author-card:hover .author-image img,
+.testimonial-author img:hover {
+  transform: none !important;
+}
+
+/* الحفاظ على الشريط العلوي ثابتاً */
+.navbar {
+  position: sticky;
+  top: 15px;
+  z-index: 100;
+}
+
+
+/* Keep section headings visible below the sticky navigation bar. */
+#articles,
+#authors,
+#community,
+#newsletter {
+  scroll-margin-top: 105px;
+}
